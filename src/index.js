@@ -1,17 +1,43 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+// import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+
+// jsx语法
+// ReactDOM.render(<App />,document.getElementById('root'));
+
+// function clock() {
+//   let time = new Date().toLocaleTimeString()
+//   let element = (
+//     <div>
+//       <h1>现在的时间是{time }</h1>
+//       <h2>react学习第二天</h2>
+//     </div>
+//   )
+//   let root = document.getElementById('root')
+//   ReactDOM.render(element,root)
+// }
+// setInterval(() => {
+//   clock()
+// }, 1000);
+
+// react函数式组件渲染
+function Clock(props) {
+  return (
+    <div>
+        <h1>现在的时间为{props.date.toLocaleTimeString() }</h1>
+        <h2>react学习第二天</h2>
+    </div>
+  )
+}
+setInterval(() =>{
+  ReactDOM.render(
+    <Clock  date = {new Date()} />,
+    document.getElementById('root')
+  )
+},1000)
+
+
 serviceWorker.unregister();
